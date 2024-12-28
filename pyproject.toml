@@ -1,0 +1,10 @@
+[project]
+name = "ics-mcp"
+version = "0.1.0"
+description = "Mallory Intelligence MCP Server"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "aiohttp",
+    "mcp[cli]===1.2.0rc1",
+]
