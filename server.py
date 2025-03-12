@@ -73,7 +73,7 @@ async def recent_vulnerability_mentions(
     async with aiohttp.ClientSession() as session:
         headers = {
             'Content-Type': 'application/json',
-            'X-API-KEY': MALLORY_API_KEY
+            'Authentication': f"bearer {MALLORY_API_KEY}"
         }
         url = f"{MALLORY_API.rstrip('/')}/v1/vulnerabilities/mentions?sort={sort}&order={order}"
         async with session.get(url, headers=headers) as response:
