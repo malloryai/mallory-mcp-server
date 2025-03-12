@@ -4,13 +4,13 @@ import aiohttp
 import os
 
 # Get API endpoint from environment variable
-MALLORY_API = os.getenv('MALLORY_API', 'https://ics-api.mallory.ai')
+MALLORY_API = os.getenv('MALLORY_API', 'https://api.mallory.ai')
 # Retrieve the API key from the environment variable once
 MALLORY_API_KEY = os.getenv('MALLORY_API_KEY', '')
 
 # Create MCP server with a name and dependencies
 mcp = FastMCP(
-    "Mallory Intelligence",
+    "Mallory AI",
     dependencies=["mcp>=1.2.0rc1", "aiohttp"]
 )
 
@@ -31,9 +31,9 @@ async def search_vulnerabilities(
     async with aiohttp.ClientSession() as session:
         headers = {
             'Content-Type': 'application/json',
-            'X-API-KEY': MALLORY_API_KEY
+            'Authentication': f"bearer {MALLORY_API_KEY}"
         }
-        url = f"{MALLORY_API.rstrip('/')}/v1/entities/vulnerabilities?sort={sort}&order={order}&search={search}"
+        url = f"{MALLORY_API.rstrip('/')}/v1/vulnerabilities?sort={sort}&order={order}&search={search}"
         async with session.get(url, headers=headers) as response:
             return await response.json()
 
@@ -53,9 +53,9 @@ async def search_threat_actors(
     async with aiohttp.ClientSession() as session:
         headers = {
             'Content-Type': 'application/json',
-            'X-API-KEY': MALLORY_API_KEY
+            'Authentication': f"bearer {MALLORY_API_KEY}"
         }
-        url = f"{MALLORY_API.rstrip('/')}/v1/entities/threat_actors?sort={sort}&order={order}&search={search}"
+        url = f"{MALLORY_API.rstrip('/')}/v1/threat_actors?sort={sort}&order={order}&search={search}"
         async with session.get(url, headers=headers) as response:
             return await response.json()
 
@@ -75,6 +75,6 @@ async def recent_vulnerability_mentions(
             'Content-Type': 'application/json',
             'X-API-KEY': MALLORY_API_KEY
         }
-        url = f"{MALLORY_API.rstrip('/')}/v1/mentions/vulnerabilities?sort={sort}&order={order}"
+        url = f"{MALLORY_API.rstrip('/')}/v1/vulnerabilities/mentions?sort={sort}&order={order}"
         async with session.get(url, headers=headers) as response:
             return await response.json()
