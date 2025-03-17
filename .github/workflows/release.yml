@@ -1,0 +1,49 @@
+name: Python Package
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@5
+      with:
+        python-version: '3.9'
+
+    - name: Install uv
+      run: pip install uv
+
+    - name: Install dependencies
+      run: uv pip install -e '.[lint]'
+
+  pypi-publish:
+    needs: lint
+    name: Upload release to PyPI
+    runs-on: ubuntu-latest
+    if: github.event_name == 'release' && github.event.action == 'published'
+
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@5
+      with:
+        python-version: '3.13'
+
+    - name: Install build dependencies
+      run: pip install uv build
+
+    - name: Build package
+      run: python -m build
+
+    - name: Publish to PyPI
+      uses: pypa/gh-action-pypi-publish@release/v1
