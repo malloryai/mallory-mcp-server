@@ -1,10 +1,37 @@
 [project]
-name = "ics-mcp"
+name = "malloryai-mcp-server"
 version = "0.1.0"
-description = "Mallory Intelligence MCP Server"
+description = "MalloryAI Intelligence MCP Server"
+authors = [
+    {name = "Mallory Team", email = "hello@mallory.ai"},
+]
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "aiohttp",
+    "asyncio>=3.4.3",
+    "dotenv>=0.9.9",
+    "malloryai-sdk>=0.3.0",
     "mcp[cli]===1.2.0rc1",
+    "pydantic>=2.10.6",
 ]
+
+[project.urls]
+Homepage = "https://github.com/malloryai/mallory-mcp-server"
+Documentation = "https://github.com/malloryai/mallory-mcp-server#readme"
+Repository = "https://github.com/malloryai/mallory-mcp-server.git"
+Issues = "https://github.com/malloryai/mallory-mcp-server/issues"
+
+[project.optional-dependencies]
+lint = [
+    "black>=24.10.0",
+    "isort>=5.13.2",
+    "flake8>=7.1.1",
+]
+tools = [
+    "bandit>=1.8.2",
+    "pre-commit>=4.1.0",
+]
+
+[tool.setuptools]
+py-modules = []
+packages = ["malloryai.mcp"]

@@ -1,0 +1,42 @@
+#!/bin/sh
+
+# Define the commit-msg hook file path
+HOOK_FILE=".git/hooks/commit-msg"
+
+echo "🔧 Setting up commit message hook..."
+
+# Ensure the .git/hooks directory exists
+mkdir -p .git/hooks
+
+# Create or overwrite the commit-msg hook
+cat << 'EOF' > "$HOOK_FILE"
+#!/bin/sh
+commit_message=$(cat "$1")
+
+if ! echo "$commit_message" | grep -E '^(feat|feature|fix|bugfix|hotfix|chore|refactor|docs|style|test|perf|ci|build|revert)(\(.+\))?: .+$'; then
+    echo "❌ ERROR: Commit message does not follow the required format!"
+    echo "✅ Example: feat: add new feature"
+    exit 1
+fi
+EOF
+
+# Make the hook executable
+chmod +x "$HOOK_FILE"
+echo "✅ Commit message hook installed successfully!"
+
+# Ensure .pre-commit-config.yaml includes the commit-msg hook
+CONFIG_FILE=".pre-commit-config.yaml"
+if ! grep -q "id: commit-msg" "$CONFIG_FILE"; then
+    echo "🔄 Adding commit-msg hook to .pre-commit-config.yaml..."
+    cat << 'EOF' >> "$CONFIG_FILE"
+
+  - repo: local
+    hooks:
+      - id: commit-msg
+        name: Commit message check
+        entry: .git/hooks/commit-msg
+        language: system
+        stages: [commit-msg]
+EOF
+    echo "✅ Updated .pre-commit-config.yaml!"
+fi
