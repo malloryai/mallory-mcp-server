@@ -1,8 +1,0 @@
-
-  - repo: local
-    hooks:
-      - id: commit-msg
-        name: Commit message check
-        entry: .git/hooks/commit-msg
-        language: system
-        stages: [commit-msg]
