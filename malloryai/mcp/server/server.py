@@ -1,11 +1,10 @@
-import sys
-
 from malloryai.sdk.api.v1.api import MalloryIntelligenceClient
 from mcp.server.fastmcp import FastMCP
 import importlib
 import pkgutil
 from pathlib import Path
 
+from ..utils.debug import debug_log
 from ..config import settings
 
 # Create MCP server with a name
@@ -25,16 +24,16 @@ def load_tools():
         if module_name != "__init__":
             # Import the module
             importlib.import_module(f"malloryai.mcp.tools.{module_name}")
-            print(f"Loaded tool: {module_name}")
+            debug_log(f"Loaded tool: {module_name}")
 
 
 def initialize_server():
     """Initialize the server by loading all tools"""
     try:
-        print("Starting tool loading...")
+        debug_log("Starting tool loading...")
         load_tools()
-        print("Tools loaded successfully")
+        debug_log("Tools loaded successfully")
         return mcp
     except Exception as e:
-        print(f"Error during initialization: {str(e)}", file=sys.stderr)
+        debug_log(f"Error during initialization: {str(e)}")
         raise

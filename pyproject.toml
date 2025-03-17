@@ -5,13 +5,14 @@ description = "MalloryAI Intelligence MCP Server"
 authors = [
     {name = "Mallory Team", email = "hello@mallory.ai"},
 ]
+license = {text = "MIT"}
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "asyncio>=3.4.3",
-    "dotenv>=0.9.9",
+    "python-dotenv>=1.0.0",
     "malloryai-sdk>=0.3.0",
-    "mcp[cli]===1.2.0rc1",
+    "mcp[cli]==1.2.0rc1",
     "pydantic>=2.10.6",
 ]
 
@@ -32,6 +33,22 @@ tools = [
     "pre-commit>=4.1.0",
 ]
 
+[build-system]
+requires = ["setuptools>=68.0.0", "wheel>=0.40.0"]
+build-backend = "setuptools.build_meta"
+
 [tool.setuptools]
 py-modules = []
 packages = ["malloryai.mcp"]
+
+[tool.black]
+line-length = 88
+target-version = ["py313"]
+
+[tool.isort]
+profile = "black"
+line_length = 88
+
+[tool.flake8]
+max-line-length = 88
+extend-ignore = ["E203"]

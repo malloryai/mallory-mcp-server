@@ -6,6 +6,8 @@ from dotenv import load_dotenv
 from pydantic import Field
 from pydantic_settings import BaseSettings
 
+from ..utils.debug import debug_log
+
 # Load environment variables from .env file
 load_dotenv()
 
@@ -39,7 +41,7 @@ class Settings(BaseSettings):
                 if cls.env_file_exists(project_root / f".env.{app_env}")
                 else project_root / ".env"
             )
-            print(f"Looking for env file at: {env_file}")  # Debug print
+            debug_log(f"Looking for env file at: {env_file}")  # Debug print
 
             def env_file_source(settings: BaseSettings) -> Dict[str, Any]:
                 return cls.env_file_loader(env_file)
@@ -64,7 +66,9 @@ class Settings(BaseSettings):
         def env_file_loader(file_path: Path) -> Dict[str, Any]:
             env_vars = {}
             if file_path.exists():
-                print(f"Loading environment variables from: {file_path}")  # Debug print
+                debug_log(
+                    f"Loading environment variables from: {file_path}"
+                )  # Debug print
                 with file_path.open() as f:
                     for line in f:
                         line = line.strip()
@@ -74,7 +78,7 @@ class Settings(BaseSettings):
                                 env_vars[key.strip()] = (
                                     value.strip().strip('"').strip("'")
                                 )
-                print(f"Loaded variables: {list(env_vars.keys())}")  # Debug print
+                debug_log(f"Loaded variables: {list(env_vars.keys())}")  # Debug print
             else:
-                print(f"ENV file not found at: {file_path}")  # Debug print
+                debug_log(f"ENV file not found at: {file_path}")  # Debug print
             return env_vars
