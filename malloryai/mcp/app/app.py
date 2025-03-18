@@ -1,5 +1,6 @@
 import asyncio
-from malloryai.mcp.server.server import initialize_server
+
+from ..server.server import initialize_server
 
 # Initialize the server at module level
 mcp = initialize_server()
