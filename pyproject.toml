@@ -42,14 +42,12 @@ build-backend = "hatchling.build"
 [tool.hatch.build]
 packages = ["malloryai"]
 include = ["app.py"]
-exclude = [
-    "tests*",
-    "docs*",
-]
+py_modules = ["app"]
 
 [tool.hatch.build.targets.wheel]
 packages = ["malloryai"]
 include = ["app.py"]
+py_modules = ["app"]
 
 [tool.setuptools]
 packages = ["malloryai"]
