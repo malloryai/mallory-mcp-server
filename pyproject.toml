@@ -33,18 +33,25 @@ tools = [
 ]
 
 [project.scripts]
-malloryai-mcp-server = "malloryai.mcp.app:main"
+malloryai-mcp-server = "app:main"
 
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
+[tool.hatch.build]
+packages = ["malloryai"]
+include = ["app.py"]
+exclude = [
+    "tests*",
+    "docs*",
+]
+
 [tool.hatch.build.targets.wheel]
-packages = ["malloryai","malloryai.mcp"]
+packages = ["malloryai"]
 
 [tool.setuptools]
-py-modules = []
-packages = ["malloryai", "malloryai.slack"]
+packages = ["malloryai"]
 
 [tool.black]
 line-length = 88
