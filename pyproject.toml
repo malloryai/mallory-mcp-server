@@ -49,9 +49,11 @@ exclude = [
 
 [tool.hatch.build.targets.wheel]
 packages = ["malloryai"]
+include = ["app.py"]
 
 [tool.setuptools]
 packages = ["malloryai"]
+include = ["app.py"]
 
 [tool.black]
 line-length = 88
