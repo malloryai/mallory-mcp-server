@@ -97,13 +97,11 @@ Add the following to your `claude_desktop_config.json`:
         "fastmcp",
         "fastmcp",
         "run",
-        "/path/to/mcp-server/app.py"
+        "/path/to/mcp-server/malloryai/mcp/app.py"
       ],
       "env": {
         "APP_ENV": "local",
-        "MALLORY_API_KEY": "your_api_key_here",
-        "LOG_LEVEL": "ERROR",
-        "LOG_DIR": "storage/logs"
+        "MALLORY_API_KEY": "your_api_key_here"
       }
     }
   }
