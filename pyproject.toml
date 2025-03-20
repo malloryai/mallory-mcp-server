@@ -1,6 +1,6 @@
 [project]
 name = "malloryai-mcp-server"
-version = "0.1.2"
+version = "0.1.4"
 description = "MalloryAI Intelligence MCP Server"
 authors = [
     { name = "Mallory Team", email = "hello@mallory.ai" },
