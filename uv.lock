@@ -411,7 +411,7 @@ wheels = [
 
 [[package]]
 name = "malloryai-mcp-server"
-version = "0.1.0"
+version = "0.1.2"
 source = { editable = "." }
 dependencies = [
     { name = "malloryai-sdk" },
@@ -438,7 +438,7 @@ requires-dist = [
     { name = "flake8", marker = "extra == 'lint'", specifier = ">=7.1.1" },
     { name = "isort", marker = "extra == 'lint'", specifier = ">=5.13.2" },
     { name = "malloryai-sdk", specifier = ">=0.3.0" },
-    { name = "mcp", extras = ["cli"], specifier = "==1.2.0rc1" },
+    { name = "mcp", extras = ["cli"], specifier = ">=1.4.1" },
     { name = "pre-commit", marker = "extra == 'tools'", specifier = ">=4.1.0" },
     { name = "pydantic", specifier = ">=2.10.6" },
     { name = "python-dotenv", specifier = ">=1.0.0" },
@@ -482,7 +482,7 @@ wheels = [
 
 [[package]]
 name = "mcp"
-version = "1.2.0rc1"
+version = "1.4.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "anyio" },
@@ -494,9 +494,9 @@ dependencies = [
     { name = "starlette" },
     { name = "uvicorn" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/3c/ba/42269d2e87e8ed1920364fdc68a8623701ddf8288de148b21ef3f26aa6df/mcp-1.2.0rc1.tar.gz", hash = "sha256:44dda64e7e61c85884cdc0b3686e8a6dfb1a014d10c4bd35914eba2f24306586", size = 99529 }
+sdist = { url = "https://files.pythonhosted.org/packages/50/cc/5c5bb19f1a0f8f89a95e25cb608b0b07009e81fd4b031e519335404e1422/mcp-1.4.1.tar.gz", hash = "sha256:b9655d2de6313f9d55a7d1df62b3c3fe27a530100cc85bf23729145b0dba4c7a", size = 154942 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/5f/d4/3af43558260e2cc7e084a04af41724931d66ae918fd232f5452d89eb2c8f/mcp-1.2.0rc1-py3-none-any.whl", hash = "sha256:4a9621b7625351fceb3cb518142be1f0a0be73db86375b87e7238e99eacbcce5", size = 66234 },
+    { url = "https://files.pythonhosted.org/packages/e8/0e/885f156ade60108e67bf044fada5269da68e29d758a10b0c513f4d85dd76/mcp-1.4.1-py3-none-any.whl", hash = "sha256:a7716b1ec1c054e76f49806f7d96113b99fc1166fc9244c2c6f19867cb75b593", size = 72448 },
 ]
 
 [package.optional-dependencies]
