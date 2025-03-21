@@ -1,6 +1,6 @@
 [project]
 name = "malloryai-mcp-server"
-version = "0.1.4"
+version = "0.1.0"
 description = "MalloryAI Intelligence MCP Server"
 authors = [
     { name = "Mallory Team", email = "hello@mallory.ai" },
@@ -9,7 +9,7 @@ license = { text = "MIT" }
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
-    "malloryai-sdk>=0.3.0",
+    "malloryai-sdk>=0.3.2",
     "python-dotenv>=1.0.0",
     "pydantic>=2.10.6",
     "mcp[cli]>=1.4.1",
