@@ -63,7 +63,6 @@ Create a `.env` file in the project root with the following variables:
 ```
 APP_ENV=local
 MALLORY_API_KEY=your_api_key_here
-LOG_LEVEL=INFO
 ```
 
 ## 🏃‍♂️ Running the Server
@@ -71,13 +70,11 @@ LOG_LEVEL=INFO
 ### Direct Execution
 
 ```bash
-python app.py
+python -m malloryai.mcp.app
 ```
-
-### Using the MCP CLI
-
+ or
 ```bash
-fastmcp run app.py
+uv run malloryai/mcp/app.py
 ```
 
 ### Via the Claude Desktop Configuration
@@ -93,14 +90,9 @@ Add the following to your `claude_desktop_config.json`:
         "run",
         "--python",
         "/path/to/mcp-server/.venv/bin/python",
-        "--with",
-        "fastmcp",
-        "fastmcp",
-        "run",
         "/path/to/mcp-server/malloryai/mcp/app.py"
       ],
       "env": {
-        "APP_ENV": "local",
         "MALLORY_API_KEY": "your_api_key_here"
       }
     }
