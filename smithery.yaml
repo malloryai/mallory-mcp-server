@@ -1,0 +1,24 @@
+# Smithery configuration file: https://smithery.ai/docs/config#smitheryyaml
+
+startCommand:
+  type: stdio
+  configSchema:
+    # JSON Schema defining the configuration options for the MCP.
+    type: object
+    required:
+      - malloryApiKey
+    properties:
+      malloryApiKey:
+        type: string
+        default: your_api_key_here
+        description: API key for authenticating with MalloryAI services.
+  commandFunction:
+    # A JS function that produces the CLI command based on the given config to start the MCP on stdio.
+    |-
+    (config) => ({
+      command: 'python',
+      args: ['-m', 'malloryai.mcp.app'],
+      env: { MALLORY_API_KEY: config.malloryApiKey }
+    })
+  exampleConfig:
+    malloryApiKey: test_api_key_1234

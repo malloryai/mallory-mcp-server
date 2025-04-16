@@ -1,5 +1,6 @@
 # Mallory MCP Server
 
+[![smithery badge](https://smithery.ai/badge/@malloryai/mallory-mcp-server)](https://smithery.ai/server/@malloryai/mallory-mcp-server)
 [![Python 3.13+](https://img.shields.io/badge/python-3.13+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![smithery badge](https://smithery.ai/badge/@malloryai/mallory-mcp-server)](https://smithery.ai/server/@malloryai/mallory-mcp-server)
@@ -14,6 +15,14 @@ Mallory provides a robust source of cyber and threat intelligence. Use this MCP 
 ## 🚀 Quick Start
 
 ### Installation
+
+#### Installing via Smithery
+
+To install mallory-mcp-server for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@malloryai/mallory-mcp-server):
+
+```bash
+npx -y @smithery/cli install @malloryai/mallory-mcp-server --client claude
+```
 
 Clone the repository:
 
