@@ -1,9 +1,10 @@
-# MalloryAI MCP Server
+# Mallory AI MCP Server
 
 [![Python 3.13+](https://img.shields.io/badge/python-3.13+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![smithery badge](https://smithery.ai/badge/@malloryai/mallory-mcp-server)](https://smithery.ai/server/@malloryai/mallory-mcp-server)
 
-The MalloryAI Intelligence MCP Server provides a robust backend for managing cybersecurity intelligence operations through the MCP (Model Context Protocol) framework.
+Mallory AI provides a robust source of current cyber intelligence. Use this MCP Server to enable your agetns with always current information about vulnerabilities, threat actors, malware, techniques and other cyber-relevant entities and content. 
 
 ## 📋 Prerequisites
 
