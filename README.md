@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/malloryai-mallory-mcp-server-badge.png)](https://mseep.ai/app/malloryai-mallory-mcp-server)
+
 # Mallory MCP Server
 
 [![Python 3.13+](https://img.shields.io/badge/python-3.13+-blue.svg)](https://www.python.org/downloads/)
