@@ -6,6 +6,10 @@
 
 Mallory provides a robust source of cyber and threat intelligence. Use this MCP Server to enable your agents with real-time cyber threat intelligence and detailed information about vulnerabilities, threat actors, malware, techniques and other cyber-relevant entities and content. 
 
+<a href="https://glama.ai/mcp/servers/@malloryai/mallory-mcp-server">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/@malloryai/mallory-mcp-server/badge" alt="Mallory Server MCP server" />
+</a>
+
 ## 📋 Prerequisites
 
 - Python 3.13 or higher
